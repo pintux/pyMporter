@@ -13,30 +13,23 @@ In order to launch the tool the following python modules are needed:
 
 ### Usage
 
-python pyMporter.py [-h] [--dbname DBNAME] [--collection COLLECTION]
-                    [--headers HEADERS]
-                    csv_file
+	python pyMporter.py [-h] [--dbname DBNAME] [--collection COLLECTION] [--headers HEADERS] csv_file
 
 
 
 positional arguments:
-  csv_file
+	csv_file
 
 optional arguments:
 
-  -h, --help:            show this help message and exit
+	-h, --help:            show this help message and exit
 
-  --dbname DBNAME:       MongoDB database name to use, default is NewDB;
+	--dbname DBNAME:       MongoDB database name to use, default is NewDB;
 
-  --collection COLLECTION:
-                        MongoDB collection name to import data to;
+	--collection COLLECTION:   MongoDB collection name to import data to;
 
-  --headers HEADERS:    comma separated names of CVS headers with (optional)
-                        types in the form of <header_name:type>, if headers are omitted, first row of the CSV
-                        file is assumed to contain the headers and all types
-                        are set to string. 
-                        Available types are "string",
-                        "float", "integer" and "date";
+	--headers HEADERS:  comma separated names of CVS headers with (optional)types in the form of <header_name:type>, if headers are omitted, first row of the CSV file is assumed to contain the headers and all types are set to string. 
+                        Available types are "string","float", "integer" and "date";
 
 Example of valid headers: 
 
@@ -58,12 +51,12 @@ If type is omitted type is string by default.
 
 ####1
 With types specification:
-python pyMporter.py --dbname MyDB --collection people --headers id:string,firstname:string,secondname:string,music:string,age:integer,date:date people.csv 
+	python pyMporter.py --dbname MyDB --collection people --headers id:string,firstname:string,secondname:string,music:string,age:integer,date:date people.csv 
 
 
 ####2
 Only headers without types specification, all values are set to "string":
-python pyMporter.py --dbname MyDB --collection people --headers id,firstname,secondname,music,age,date people.csv
+	python pyMporter.py --dbname MyDB --collection people --headers id,firstname,secondname,music,age,date people.csv
 
 
 
