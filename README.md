@@ -33,9 +33,9 @@ optional arguments:
 
 Example of valid headers: 
 
-name:string,age:integer,city:string
+	name:string,age:integer,city:string
 
-id:integer,descr:string,date:date
+	id:integer,descr:string,date:date
 
 If type is omitted type is string by default.
 
