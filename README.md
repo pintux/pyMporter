@@ -51,11 +51,13 @@ If type is omitted type is string by default.
 
 ####1
 With types specification:
+
 	python pyMporter.py --dbname MyDB --collection people --headers id:string,firstname:string,secondname:string,music:string,age:integer,date:date people.csv 
 
 
 ####2
 Only headers without types specification, all values are set to "string":
+
 	python pyMporter.py --dbname MyDB --collection people --headers id,firstname,secondname,music,age,date people.csv
 
 
