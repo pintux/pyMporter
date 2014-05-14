@@ -1,7 +1,7 @@
 '''
 The MIT License (MIT)
 
-Copyright (c) <2013> <Antonio Pintus>
+Copyright (c) <2013-2014> <Antonio Pintus>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ import pymongo
 from dateutil.parser import *
 import datetime
 
-def connect_to_db(dbname, collection):		
+def connect_to_db(dbname, collection):
 	#open mongoDB connection
 	c = pymongo.MongoClient()
 	db = c[dbname]
@@ -55,7 +55,7 @@ def to_type(s,type):
 
 	except:
 		return unicode(s,'utf-8')
-		
+
 
 
 
@@ -70,7 +70,7 @@ def parse_headers(headers):
 
 
 def import_csv(dbname, collection, headers, csv_file):
-	rownum = 0	
+	rownum = 0
 	headers_row = parse_headers(headers)
 
 	print "\nImporting CSV file to db: %s, collection: %s" % (dbname,collection)
@@ -78,7 +78,7 @@ def import_csv(dbname, collection, headers, csv_file):
 	try:
 
 		coll = connect_to_db(dbname, collection)
-		
+
 		with open(csv_file, 'rb') as f:
 		    reader = csv.reader(f)
 		    for row in reader:
@@ -103,9 +103,9 @@ def import_csv(dbname, collection, headers, csv_file):
 
 
 if __name__ == '__main__':
-	
+
 	parser = argparse.ArgumentParser(description='pyMporter: a minimalist tool to import a CSV file to MongoDB supporting headers types specification.')
-	
+
 	parser.add_argument("csv_file")
 	parser.add_argument('--dbname', default='NewDB',
 	                   help='MongoDB database name to use, default is NewDB')
@@ -114,5 +114,5 @@ if __name__ == '__main__':
 	parser.add_argument('--headers', dest='headers', help='comma separated names of CVS headers with (optional) types, if headers are omitted, first row of the CSV file is assumed to contain the headers and all types are set to string. Available types are "string", "float", "integer" and "date"; Example of valid headers: name:string,age:integer,city:string. If type is omitted type is string by default.')
 
 	args = parser.parse_args()
-	
+
 	import_csv(args.dbname, args.collection, args.headers, args.csv_file)
