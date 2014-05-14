@@ -1,33 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Pymporter by pintux</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Pymporter : A minimalist tool that allows to import a CSV (comma separated) file to a MongoDB database with headers and simple types specification. Types are mapped to specified database collection." />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Pymporter</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Pymporter</h1>
-        <p>A minimalist tool that allows to import a CSV (comma separated) file to a MongoDB database with headers and simple types specification. Types are mapped to specified database collection.</p>
 
-        <p class="view"><a href="https://github.com/pintux/pyMporter">View the Project on GitHub <small>pintux/pyMporter</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pintux/pyMporter">View on GitHub</a>
 
+          <h1 id="project_title">Pymporter</h1>
+          <h2 id="project_tagline">A minimalist tool that allows to import a CSV (comma separated) file to a MongoDB database with headers and simple types specification. Types are mapped to specified database collection.</h2>
 
-        <ul>
-          <li><a href="https://github.com/pintux/pyMporter/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/pintux/pyMporter/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/pintux/pyMporter">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pintux/pyMporter/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pintux/pyMporter/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>
 <a name="pymporter" class="anchor" href="#pymporter"><span class="octicon octicon-link"></span></a>pyMporter.</h3>
 
@@ -37,27 +40,32 @@ The mongoimport tool distributed with MongoDB (vers. &lt;= 2.4.6) doesn't allow 
 <h3>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
 
-<pre><code>python pyMporter.py [-h] [--dbname DBNAME] [--collection COLLECTION] [--headers HEADERS] csv_file
-</code></pre>
+<div class="highlight highlight-bash"><pre>python pyMporter.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--dbname DBNAME<span class="o">]</span> <span class="o">[</span>--collection COLLECTION<span class="o">]</span> <span class="o">[</span>--headers HEADERS<span class="o">]</span> csv_file
+</pre></div>
 
 <h3>
 <a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h3>
 
-<pre><code>import_csv(database_name, collection_name, csv_headers, csv_file)
+<div class="highlight highlight-python"><pre><span class="n">import_csv</span><span class="p">(</span><span class="n">database_name</span><span class="p">,</span> <span class="n">collection_name</span><span class="p">,</span> <span class="n">csv_headers</span><span class="p">,</span> <span class="n">csv_file</span><span class="p">)</span>
 
-database_name:       MongoDB database name to use, default is NewDB;
+<span class="n">database_name</span><span class="p">:</span>       <span class="n">MongoDB</span> <span class="n">database</span> <span class="n">name</span> <span class="n">to</span> <span class="n">use</span><span class="p">,</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">NewDB</span><span class="p">;</span>
 
-collection_name:   MongoDB collection name to import data to;
+<span class="n">collection_name</span><span class="p">:</span>   <span class="n">MongoDB</span> <span class="n">collection</span> <span class="n">name</span> <span class="n">to</span> <span class="kn">import</span> <span class="nn">data</span> <span class="nn">to</span><span class="p">;</span>
 
-csv_headers:  comma separated names of CSV headers with (optional) types in the form of &lt;header_name:type&gt;, if headers are omitted, first row of the CSV file is assumed to contain the headers and all types are set to string. Available types are "string","float", "integer" and "date";
-</code></pre>
+<span class="n">csv_headers</span><span class="p">:</span>  <span class="n">comma</span> <span class="n">separated</span> <span class="n">names</span> <span class="n">of</span> <span class="n">CSV</span> <span class="n">headers</span> <span class="k">with</span> <span class="p">(</span><span class="n">optional</span><span class="p">)</span> <span class="n">types</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">form</span> <span class="n">of</span> <span class="o">&lt;</span><span class="n">header_name</span><span class="p">:</span><span class="nb">type</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">if</span> <span class="n">headers</span> <span class="n">are</span> <span class="n">omitted</span><span class="p">,</span> <span class="n">first</span> <span class="n">row</span> <span class="n">of</span> <span class="n">the</span> <span class="n">CSV</span> <span class="nb">file</span> <span class="ow">is</span> <span class="n">assumed</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">the</span> <span class="n">headers</span> <span class="ow">and</span> <span class="nb">all</span> <span class="n">types</span> <span class="n">are</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">string</span><span class="o">.</span> <span class="n">Available</span> <span class="n">types</span> <span class="n">are</span> <span class="s">"string"</span><span class="p">,</span><span class="s">"float"</span><span class="p">,</span> <span class="s">"integer"</span> <span class="ow">and</span> <span class="s">"date"</span><span class="p">;</span>
+</pre></div>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/pintux">pintux</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Pymporter maintained by <a href="https://github.com/pintux">pintux</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
